@@ -8,12 +8,15 @@ import {
     TableRow
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
-import Chart from './Chart'
-import Total from './Total'
-import AddCar from './AddCar'
- 
+import Chart from '../containers/Chart'
+import Total from '../containers/Total'
+import AddCar from '../containers/AddCar'
+
+
+
 const Dashboard = (props) => {
     return (
+      
         <Container maxWidth="lg" className="car-container">
             <h4>Welcome, {props.user.username}</h4>
             <div className="flex-container">
@@ -44,6 +47,8 @@ const Dashboard = (props) => {
                         <TableCell>{car["horsepower"]}</TableCell>
                         <TableCell>
                             <DeleteIcon
+                                onClick={props.removeCar}
+                            
                                 // add onClick method here
                                 className="icon text-red" />
                         </TableCell>

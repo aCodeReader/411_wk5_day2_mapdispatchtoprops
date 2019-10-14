@@ -49,7 +49,7 @@ Clone this repo and run `npm i` and then `npm start`
 
 * Ok so since the button we want to tie this to is in the Dashboard component and it already has a container.. we don't need to create a new one. We do need to go to `containers/Dashboard.js` and add the `mapDispatchToProps` function though. Do that right below that `mapStateToprops` one. This function should return an object with a key of "removeCar" and a value of `(index) => dispatch(removeCar(index))`. Also, don't forget to import that `{ removeCar }` action at the top of the file. We also need to ensure that we pass the `mapDispatchToProps` function to `connect`.
 
-* Now that everything is hooked up we need to use our new action. In the Dashboard.js COMPONENT, create an "onClick" method on the Icon (the last TableCell) that is a function. It should call `props.removeCar` with the index. The current index can be found in the beginning of the map function. It's value is "idx".
+/*/ Now that everything is hooked up we need to use our new action. In the Dashboard.js COMPONENT, create an "onClick" method on the Icon (the last TableCell) that is a function. It should call `props.removeCar` with the index. The current index can be found in the beginning of the map function. It's value is "idx".
 
 * When you click the trash can icon the corresponding row should be removed. Is it working? If not, ask the instructor for direction.
 
@@ -61,7 +61,7 @@ Clone this repo and run `npm i` and then `npm start`
 
 * Next, go to the Dashboard COMPONENT and change the import for "Total" to reference the container instead of the component. Ex. `import Total from './Total'`
 
-* Finally, go to the `Total.js` file and under the components folder and change the number "4" to `{props.cars.length}`. The total should now display "20".
+/*/ Finally, go to the `Total.js` file and under the components folder and change the number "4" to `{props.cars.length}`. The total should now display "20".
 
 * Go ahead and add and remove items from the table. Notice the total update in real time. This is something that wouldn't have been possible with normal React state because the information for "Total" lives in a different component. Components are meant to be re-usable so if we ever wanted to put this "Total" somewhere else in our application we could just import it and use it like in dashboard and it will always have the correct cars data.
 
@@ -69,7 +69,7 @@ Clone this repo and run `npm i` and then `npm start`
 
 * Once agin in Dashboard COMPONENT, change the Chart import so that it points to the container.
 
-* Finally, in `components/Chart.js` above the return statement, create two variables called "over" and "under". Use the "filter" method to filer the "props.cars" for cars who's horsepower match the criteria. Then use those values in the corresponding Pie Chart. They will be "over.length" and "under.length"
+*/* Finally, in `components/Chart.js` above the return statement, create two variables called "over" and "under". Use the "filter" method to filer the "props.cars" for cars who's horsepower match the criteria. Then use those values in the corresponding Pie Chart. They will be "over.length" and "under.length"
 
 * You should see 4 (red) over 200 and 16 (orange) under 200. But wait.. since this data is connected to Redux it will change according to our actions. So go ahead and delete 3 users who's horsepower is under 200. Did you see the chart change? Again, since Dashboard, Chart and Total are all referencing the same data... they will always be in sync. The addition of the Pie Chart will always equal the total.
 
